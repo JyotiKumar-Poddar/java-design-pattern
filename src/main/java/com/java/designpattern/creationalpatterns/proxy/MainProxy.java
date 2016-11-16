@@ -18,9 +18,8 @@ import java.lang.reflect.Proxy;
 public class MainProxy {
 
 	public static void main(String[] args) {
-		PrintMessageImpl printMessage = new PrintMessageImpl();
-
-		PrintMessage proxy = (PrintMessage) Proxy.newProxyInstance(
+		final PrintMessageImpl printMessage = new PrintMessageImpl();
+		final PrintMessage proxy = (PrintMessage) Proxy.newProxyInstance(
 				PrintMessageImpl.class.getClassLoader(), printMessage.getClass()
 						.getInterfaces(), new ProxyInvocationHandler(
 						printMessage));
